@@ -32,8 +32,6 @@ public class FoulPlay {
 
 
 	}//end of main
-	
-	
 	/**
 	 * 
 	 */
