@@ -24,7 +24,6 @@ public class BankingTestHarness {
 		System.out.println("------------------------------------------------------");
 			
 		
-		
 		/* Test debit() and credit() */
 		String output2 = "";
 		
@@ -73,8 +72,6 @@ public class BankingTestHarness {
 			System.out.println("\nTest 2 failed:\tdebit() and credit() do not work");
 
 		System.out.println("------------------------------------------------------");
-
-		
 		
 		/* Test getMin and getMax() */
 		String output3 = "";
@@ -82,9 +79,7 @@ public class BankingTestHarness {
 		
 		//build strings of all mins and all maxes for comparison
 		output3 = "" + b1.getMin() + b2.getMin() + b3.getMin() + b4.getMin() + b5.getMin() + b6.getMin() + b7.getMin();
-		System.out.println(output3); // TEST
 		output4 = "" + b1.getMax() + b2.getMax() + b3.getMax() + b4.getMax() + b5.getMax() + b6.getMax() + b7.getMax();
-		System.out.println(output4); // TEST
 		//print balance histories and mins/maxes
 		System.out.println(b1.historyBalanceToString() + " : min: " + b1.getMin() + ",\tmax:" + b1.getMax() + "\n");
 		System.out.println(b2.historyBalanceToString() + " : min: " + b2.getMin() + ",\tmax:" + b2.getMax() + "\n");
@@ -94,7 +89,6 @@ public class BankingTestHarness {
 		System.out.println(b6.historyBalanceToString() + " : min: " + b6.getMin() + ",\tmax:" + b6.getMax() + "\n");
 		System.out.println(b7.historyBalanceToString() + " : min: " + b7.getMin() + ",\tmax:" + b7.getMax() + "\n");
 
-		
 		//check if getMin worked
 		if(output3.equals("150300225125750-350"))
 			System.out.println("Test 3 passed:\tgetMin() working");
@@ -106,8 +100,6 @@ public class BankingTestHarness {
 			System.out.println("Test 4 passed:\tgetMax() working");
 		else
 			System.out.println("Test 4 failed:\tgetMax() not working");
-
-		
 		
 		//System.out.println(m2.historyTransactionToString());	
 	}
