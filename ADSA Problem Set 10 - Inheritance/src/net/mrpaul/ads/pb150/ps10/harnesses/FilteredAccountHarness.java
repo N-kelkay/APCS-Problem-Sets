@@ -18,7 +18,6 @@ public class FilteredAccountHarness {
 			System.out.println("\tprocess return value: " + processReturn);
 			System.out.println("\tpercentFiltered: " + f.percentFiltered());
 			System.out.println("\tsuper.process called: " + f.__processCalled + "\n");
-		}
-		
+		}	
 	}
 }

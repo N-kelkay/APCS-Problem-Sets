@@ -13,26 +13,45 @@ import net.mrpaul.ps10.distribution.Account;
 public class FilteredAccount extends Account{
 	private int filtered, submitted;
 	
+	/**
+	 * 
+	 * @param c
+	 */
 	public FilteredAccount(Client c) {
 		super(c);
 		filtered = 0;
 		submitted = 0;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public double percentFiltered() {
-	
-		if(submitted == 0) 
-			return 0.0;
-		else
-			return submitted;		
 		
+		if (submitted == 0)
+			return 0;
+		else 
+			return (filtered * 100.0) / submitted;
 	}
 	
+	/**
+	 * 
+	 * 
+	 * @param t
+	 */
 	public boolean process(Transaction t) {
-		super.process(t);
 		
-		submitted = t.value();
+		if(t.value() == 0) {
+			submitted += 1;
+			filtered += 1;
+			return true;
+		} 
+		else {
+			submitted += 1;
+			super.process(t);
+			return true;
+		}
 		
-		return __processCalled;
-	}
+	}		
 }
