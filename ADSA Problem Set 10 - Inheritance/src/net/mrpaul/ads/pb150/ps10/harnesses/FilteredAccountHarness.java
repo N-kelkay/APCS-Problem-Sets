@@ -1,7 +1,6 @@
 package net.mrpaul.ads.pb150.ps10.harnesses;
 
 import net.mrpaul.ads.pb150.ps10.FilteredAccount;
-import net.mrpaul.ps10.distribution.Account;
 import net.mrpaul.ps10.distribution.Account.Client;
 import net.mrpaul.ps10.distribution.Account.Transaction;
 
