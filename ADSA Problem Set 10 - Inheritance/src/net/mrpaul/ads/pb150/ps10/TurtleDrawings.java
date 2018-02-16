@@ -10,6 +10,8 @@ public class TurtleDrawings {
         Pen p = new StandardPen(win);
         
         int move = 1;
+        
+        //Drawing:
         for (int i = 0; i <360; i++) {
         	p.down();
         	p.turn(move);
@@ -21,7 +23,6 @@ public class TurtleDrawings {
         	p.up();
         	p.home();
         	move+= 1;
-        } 
-        
+        }   
 	}
 }
