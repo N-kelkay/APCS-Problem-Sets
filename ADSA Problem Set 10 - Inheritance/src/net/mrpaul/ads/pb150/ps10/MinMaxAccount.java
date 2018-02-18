@@ -2,6 +2,20 @@ package net.mrpaul.ads.pb150.ps10;
 
 import net.mrpaul.ps10.distribution.BankingAccount;
 
+/** 
+ * 
+*class MinMaxAccount whose instances can be used in place of a BankingAccount object 
+*but include new behavior of remembering the minimum and maximum balances ever recorded for the account
+*
+*<p>
+*The account's constructor sets the initial balance based on the Startup information.
+*Assuming that only the debit and credit methods change an account's balance.
+*<p>
+*APCS PS: Inheritance
+*Date; Feb 16, 2018
+* 
+*@author Natenael Kelkay
+*/
 public class MinMaxAccount extends BankingAccount{
 
 	private int min, max;
@@ -41,5 +55,4 @@ public class MinMaxAccount extends BankingAccount{
 		else if(super.getBalance() > max)
 			max = super.getBalance();
 	}
-
 }
