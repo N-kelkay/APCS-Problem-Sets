@@ -116,7 +116,6 @@ public class Exercises2dArr {
 		return false;
 	}
 	
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) {	
 	}
 }

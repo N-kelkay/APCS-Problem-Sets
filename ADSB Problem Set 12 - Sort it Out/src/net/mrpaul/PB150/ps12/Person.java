@@ -149,8 +149,7 @@ public class Person implements Comparable <Person>{
 			
 			if(this.numFriends < this.numFriends) {
 				return-1;
-			}
-			
+			}	
 			
 		}
 		return 0;
