@@ -46,5 +46,4 @@ class RecursionExercisesTest {
 	void testEuclideanGCD() {
 		assertEquals(2, RecursionExercises.euclideanGCD(2, 2));
 	}
-
 }

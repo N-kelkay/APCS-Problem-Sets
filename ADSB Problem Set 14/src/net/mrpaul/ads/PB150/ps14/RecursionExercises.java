@@ -42,7 +42,6 @@ public class RecursionExercises {
 		//return n == 0 ? 0 : n % 10 + sumDigits(n/10);		
 	}
 	
-	
 	//FIX!!
 	public static int count7(int n) {
 		int count = 0;
@@ -88,7 +87,6 @@ public class RecursionExercises {
 		}
 	}
 	
-	
 	//FINISH!!!!
 	public static boolean array220(int[] a, int x) {
 		return false;
@@ -121,11 +119,38 @@ public class RecursionExercises {
 		}
 	}
 	
+	
+	//NOT WORKING!!!
+	public static int countVowels(String word) {
+		
+		if (word.length() == 1) {
+			if (word == "a" || word == "e" || word == "i" || word == "o" || word == "u") {
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+		else if (word.substring(word.length() - 1) == "a" || word.substring(word.length() - 1) == "e" || word.substring(word.length() - 1) == "i" || word.substring(word.length() - 1) == "o" || word.substring(word.length() - 1) == "u"){
+			return 1 + countVowels(word.substring(0, word.length() -1));
+		}
+		else {
+			return countVowels(word.substring(0, word.length() -1));
+		}
+		
+		//if (word.substring(word.length() - 1) == "a" || word.substring(word.length() - 1) == "e" || word.substring(word.length() - 1) == "i" || word.substring(word.length() - 1) == "o" || word.substring(word.length() - 1) == "u") {
+		//	count++;
+		//}
+	}
+	
 	//TEST METHOD
 	public static void main(String[] args) {
 		int x = 3;
 		int y = 3;
-		System.out.println(powerN(x, y));
+		//System.out.println(powerN(x, y));
+		
+		String word = "Natenael";
+		System.out.println(countVowels(word));
 	}
-	
 }
