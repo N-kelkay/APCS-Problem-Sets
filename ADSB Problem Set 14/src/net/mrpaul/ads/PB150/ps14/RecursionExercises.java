@@ -15,10 +15,12 @@ public class RecursionExercises {
 	 * @return word reversed
 	 */
 	public static String reverseString(String word) {
-		if(word.indexOf(word) == 0) {
-			return "FIX!!!!!";
+		if (word.length() == 1) {
+			return word;
 		}
-		return word;
+		else {
+			return word.substring(word.length()-1) + reverseString(word.substring(0, word.length() - 1));
+		}
 	}
 	
 	/**
@@ -42,26 +44,27 @@ public class RecursionExercises {
 		//return n == 0 ? 0 : n % 10 + sumDigits(n/10);		
 	}
 	
-	//FIX!!
+	//FINISHED
 	public static int count7(int n) {
-		int count = 0;
+		
 		if(n < 10) {
-			if (n == 1) {
-				count++;
+			if (n == 7) {
+				return 1;
+			}
+			else {
+				return 0;
 			}
 		}
 		
 		else
 		{
 			if (n % 10 == 7) {
-				count++;
-				return count7(n/10);
+				return 1 + count7(n/10);
 			}
 			else {
 				return count7(n/10);
 			}
 		}
-		return count;
 	}
 	
 	/**
@@ -87,9 +90,21 @@ public class RecursionExercises {
 		}
 	}
 	
-	//FINISH!!!!
+	//FINISHED
 	public static boolean array220(int[] a, int x) {
-		return false;
+		if(x >= a.length - 2) {
+			if(a[x] * 10 == a[x+1]) {
+				return true;
+			}
+			return false;
+		}
+		
+		else {
+			if(a[x] * 10 == a[x+1]) {
+				return true;
+			}
+			return array220(a, x + 1);
+		}
 	}
 	
 	/**
@@ -120,11 +135,11 @@ public class RecursionExercises {
 	}
 	
 	
-	//NOT WORKING!!!
+	//FINSISHED
 	public static int countVowels(String word) {
 		
 		if (word.length() == 1) {
-			if (word == "a" || word == "e" || word == "i" || word == "o" || word == "u") {
+			if (checkVowel(word.charAt(0))) {
 				return 1;
 			}
 			else
@@ -132,25 +147,33 @@ public class RecursionExercises {
 				return 0;
 			}
 		}
-		else if (word.substring(word.length() - 1) == "a" || word.substring(word.length() - 1) == "e" || word.substring(word.length() - 1) == "i" || word.substring(word.length() - 1) == "o" || word.substring(word.length() - 1) == "u"){
+		else if (checkVowel(word.charAt(word.length()-1))){
 			return 1 + countVowels(word.substring(0, word.length() -1));
 		}
 		else {
 			return countVowels(word.substring(0, word.length() -1));
 		}
-		
-		//if (word.substring(word.length() - 1) == "a" || word.substring(word.length() - 1) == "e" || word.substring(word.length() - 1) == "i" || word.substring(word.length() - 1) == "o" || word.substring(word.length() - 1) == "u") {
-		//	count++;
-		//}
+
+	}
+	
+	//HELPER METHOD: for countVowel
+	private static boolean checkVowel(char word) {
+		if (word == 'a' || word == 'e' || word == 'i' || word == 'o' || word == 'u') {
+			return true;
+		}
+		return false;
 	}
 	
 	//TEST METHOD
 	public static void main(String[] args) {
-		int x = 3;
-		int y = 3;
-		//System.out.println(powerN(x, y));
+	
+		String y = "Natenael";
+		System.out.println(countVowels(y));
 		
-		String word = "Natenael";
-		System.out.println(countVowels(word));
+		int x = 756767;
+		System.out.println(count7(x));
+		
+		int[] z = {1, 2, 20, 200};
+		System.out.println(array220(z, 0));
 	}
 }
