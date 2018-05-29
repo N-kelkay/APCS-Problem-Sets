@@ -44,7 +44,19 @@ public class RecursionExercises {
 		//return n == 0 ? 0 : n % 10 + sumDigits(n/10);		
 	}
 	
-	//FINISHED
+	/**
+	 * Given a non-negative int n, returns the count of the occurrences of 7 as a digit, so for example 717 yields 2
+	 * 
+	 * **pseudocode:
+	 * if the number is less then 10 and if it is equal 10 7 return 1, else return 0
+	 * else
+	 * if the number % 10 is 7 return 1 + count7(n/10)
+	 * else return just count7(n/10)
+	 * **
+	 *
+	 * @param n
+	 * @return
+	 */
 	public static int count7(int n) {
 		
 		if(n < 10) {
@@ -135,7 +147,19 @@ public class RecursionExercises {
 	}
 	
 	
-	//FINSISHED
+	/**
+	 * a method countVowels to return the number of vowels in its single String parameter
+	 * 
+	 * **pseudocode:
+	 * check if the words length is one, if it is, if checkVowel of word.charAt(0) then return 1
+	 * else return 0.
+	 * Else, check, checkvowels(word.charAt(word.length()-1)). And return 1 and countVowels(word.substring(0, word.length() -1))
+	 * else return just countVowels(word.substring(0, word.length() -1))
+	 * **
+	 * 
+	 * @param word
+	 * @return
+	 */
 	public static int countVowels(String word) {
 		
 		if (word.length() == 1) {
@@ -155,6 +179,24 @@ public class RecursionExercises {
 		}
 
 	}
+	// Working but when the word length is even, there is an out of bound exception
+	public static int isPalindrome(String word) {
+		word = word.toLowerCase();
+		word = word.trim();
+		
+		if(word.length() == 1) {
+			return 1;
+		}
+		
+		else {
+			System.out.println("got here " + (word.substring(word.length()-1) + " " + word.substring(0, 1)));
+			if(word.substring(word.length()-1).equals(word.substring(0, 1))) {
+				return isPalindrome(word.substring(1, word.length()-1));
+			}
+			return 0;
+		}
+		
+	}
 	
 	//HELPER METHOD: for countVowel
 	private static boolean checkVowel(char word) {
@@ -168,12 +210,15 @@ public class RecursionExercises {
 	public static void main(String[] args) {
 	
 		String y = "Natenael";
-		System.out.println(countVowels(y));
+		//System.out.println(countVowels(y));
 		
 		int x = 756767;
-		System.out.println(count7(x));
+		//System.out.println(count7(x));
 		
 		int[] z = {1, 2, 20, 200};
-		System.out.println(array220(z, 0));
+		//System.out.println(array220(z, 0));
+		
+		String a = "A but tuba";
+		System.out.println(isPalindrome(a));
 	}
 }
