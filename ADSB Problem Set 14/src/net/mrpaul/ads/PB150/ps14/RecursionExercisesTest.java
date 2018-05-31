@@ -18,7 +18,8 @@ class RecursionExercisesTest {
 
 	@Test
 	void testReverseString() {
-		fail("Not yet implemented");
+		String x = "racecar";
+		assertEquals("racecar", RecursionExercises.reverseString(x));
 	}
 
 	@Test
@@ -29,7 +30,8 @@ class RecursionExercisesTest {
 
 	@Test
 	void testCount7() {
-		fail("Not yet implemented");
+		int x = 17671;
+		assertEquals(2, RecursionExercises.count7(x));
 	}
 
 	@Test
@@ -39,11 +41,24 @@ class RecursionExercisesTest {
 
 	@Test
 	void testArray220() {
-		fail("Not yet implemented");
+		int[] x = {1, 2, 20, 200};
+		assertEquals(true, RecursionExercises.array220(x, 0));
 	}
 
 	@Test
 	void testEuclideanGCD() {
 		assertEquals(2, RecursionExercises.euclideanGCD(2, 2));
+	}
+	
+	@Test
+	void testCountVowels() {
+		String y = "Natenael";
+		assertEquals(4, RecursionExercises.countVowels(y));
+	}
+	
+	@Test
+	void testIsPalindrome() {
+		String y = "racecar";
+		assertEquals(1, RecursionExercises.isPalindrome(y));
 	}
 }

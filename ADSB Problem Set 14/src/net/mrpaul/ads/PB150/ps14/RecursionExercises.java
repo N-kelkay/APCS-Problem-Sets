@@ -2,15 +2,13 @@ package net.mrpaul.ads.PB150.ps14;
 
 public class RecursionExercises {
 	
-	/*
-	 * All methods should be static
-	 * 2 JUnit tests are expected for each exercise
-	 * Do not use loops in any of the following exercises
-	 */
-	
 	/**
 	 * Takes a single String parameter and returns it reversed
 	 * 
+	 * **pseudocode:
+	 * check if the words length is 1, if it is return the word
+	 * else return the words last letter + reverseString with word at 0 until the last character
+	 * **
 	 * @param word
 	 * @return word reversed
 	 */
@@ -102,7 +100,22 @@ public class RecursionExercises {
 		}
 	}
 	
-	//FINISHED
+	/**
+	 * computes recursively if the array contains somewhere a value followed immediately in the array by that value times 10
+	 * 
+	 * **pseudocode:
+	 * check if x -s greater or equal to the arrays length*2
+	 * if it is, check if the array at x *1= is the same as the array at x+1
+	 * if it is return true, else false
+	 * 
+	 * else check if a at x * 10 is the same as a at x+1
+	 * if it is return true
+	 * else return array220(a, x +1)
+	 * **
+	 * @param a
+	 * @param x
+	 * @return
+	 */
 	public static boolean array220(int[] a, int x) {
 		if(x >= a.length - 2) {
 			if(a[x] * 10 == a[x+1]) {
@@ -179,17 +192,31 @@ public class RecursionExercises {
 		}
 
 	}
-	// Working but when the word length is even, there is an out of bound exception
+	
+	/**
+	 * returns 1 if the string parameter is a palindrome and 0 otherwise
+	 * 
+	 * **pseudocode:
+	 * trim the word of spaces
+	 * if the length of the word is 1 or 0 return 1
+	 * else check the first and last letter of the word,
+	 * if they are equal return isPalindrome with the word trimed of the
+	 * first and last letters
+	 * else return 0
+	 * **
+	 * 
+	 * @param word
+	 * @return
+	 */
 	public static int isPalindrome(String word) {
 		word = word.toLowerCase();
 		word = word.trim();
 		
-		if(word.length() == 1) {
+		if(word.length() == 1 || word.length() == 0) {
 			return 1;
 		}
 		
 		else {
-			System.out.println("got here " + (word.substring(word.length()-1) + " " + word.substring(0, 1)));
 			if(word.substring(word.length()-1).equals(word.substring(0, 1))) {
 				return isPalindrome(word.substring(1, word.length()-1));
 			}
@@ -218,7 +245,7 @@ public class RecursionExercises {
 		int[] z = {1, 2, 20, 200};
 		//System.out.println(array220(z, 0));
 		
-		String a = "A but tuba";
-		System.out.println(isPalindrome(a));
+		String a = "racecar";
+		//System.out.println(isPalindrome(a));
 	}
 }
