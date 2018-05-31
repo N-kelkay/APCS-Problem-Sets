@@ -1,5 +1,12 @@
 package net.mrpaul.ads.PB150.ps14;
 
+/**
+ * works with Recursion to solve different problems 
+ * each problem has it's own method
+ * 
+ * @author Natenael Kelkay
+ * Date: May 31, 2018
+ */
 public class RecursionExercises {
 	
 	/**
@@ -231,21 +238,5 @@ public class RecursionExercises {
 			return true;
 		}
 		return false;
-	}
-	
-	//TEST METHOD
-	public static void main(String[] args) {
-	
-		String y = "Natenael";
-		//System.out.println(countVowels(y));
-		
-		int x = 756767;
-		//System.out.println(count7(x));
-		
-		int[] z = {1, 2, 20, 200};
-		//System.out.println(array220(z, 0));
-		
-		String a = "racecar";
-		//System.out.println(isPalindrome(a));
 	}
 }
