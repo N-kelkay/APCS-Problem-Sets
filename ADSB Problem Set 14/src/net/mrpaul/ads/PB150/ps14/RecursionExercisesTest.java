@@ -2,6 +2,9 @@ package net.mrpaul.ads.PB150.ps14;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -60,5 +63,79 @@ class RecursionExercisesTest {
 	void testIsPalindrome() {
 		String y = "racecar";
 		assertEquals(1, RecursionExercises.isPalindrome(y));
+	}
+	
+	//Part 2:
+	
+	@Test
+	void testMaxLength() {
+		List<String> list = new ArrayList<>();
+		list.add("welcome");
+		list.add("hello");
+		list.add("Hi");
+		list.add("Hi");
+		list.add("What");
+		
+		assertEquals(7, RecursionExercises.maxLength(list));
+	}
+	
+	@Test 
+	void testSwapPairs() {
+		List<String> list = new ArrayList<>();
+		list.add("welcome");
+		list.add("hello");
+		list.add("Hi");
+		list.add("Hi");
+		list.add("What");
+		String answer = "hello welcome Hi Hi What";
+		
+		assertTrue(RecursionExercises.swapPairs(list).equals(answer));
+	}
+	
+	@Test
+	void testDoubleList() {
+		List<String> list = new ArrayList<>();
+		list.add("welcome");
+		list.add("hello");
+		list.add("Hi");
+		String answer = "welcome welcome hello hello Hi Hi";
+		 
+		assertTrue(RecursionExercises.doubleList(list).equals(answer));
+	}
+	
+	@Test
+	void testMinToFront() {
+		List<Integer> list1 = new ArrayList<>();
+		list1.add(3);
+		list1.add(2);
+		list1.add(1);
+		list1.add(4);
+		list1.add(1);
+		list1.add(1);
+		list1.add(9);
+		List<Integer> list = RecursionExercises.minToFront(list1);
+		List<Integer> list2 = new ArrayList<>();
+		
+		list2.add(1);
+		list2.add(1);
+		list2.add(1);
+		list2.add(3);
+		list2.add(2);
+		list2.add(4);
+		list2.add(9);
+		assertEquals(list, list2);
+	}
+	
+	@Test
+	void testRemoveDuplicates() {
+		List<String> list = new ArrayList<>();
+		list.add("welcome");
+		list.add("hello");
+		list.add("Hi");
+		list.add("Hi");
+		list.add("What");
+		String answer = "welcome hello Hi What";
+		
+		assertTrue(RecursionExercises.removeDuplicates(list).equals(answer));
 	}
 }

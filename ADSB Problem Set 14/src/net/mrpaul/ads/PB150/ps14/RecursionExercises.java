@@ -312,20 +312,20 @@ public class RecursionExercises {
 			return "";
 		}
 		else {
-			if(list.size() == 2) {
-				String x = list.remove(0);
-				String y = list.remove(0);
-				return x + " " + x + " " + y + " " + y + " " + doubleList(list);
-			}
-			else {
+			
+			
 			String x = list.remove(0);
-			String y = list.remove(1);
+			String y = list.remove(0);
 			return x + " " + x + " " + y + " " + y + " " + doubleList(list);
-			}
+			
 		}
 	}
 	
-	
+	/**
+	 * FINISHED!
+	 * @param list
+	 * @return
+	 */
 	public static List<Integer> minToFront(List<Integer> list) {
 		if(list.size() == 1) {
 			return list;
@@ -359,7 +359,7 @@ public class RecursionExercises {
 			for(int i = 0; i < newList.size(); i ++) {
 				list.add(0, newList.get(i));
 			}
-			return newList;
+			return list;
 		}
 	}
 	
@@ -380,31 +380,33 @@ public class RecursionExercises {
 			if(list.get(0).equals(list.get(1))) {
 				String x = list.remove(1);
 				list.remove(0);
-				return x + " " + removeDuplicates(list) + " ";
+				return x + " " + removeDuplicates(list);
 			}
 			else {
-				return list.remove(0) + " " + removeDuplicates(list) + " ";
+				return list.remove(0) + " " + removeDuplicates(list);
 			}
 		}
 	}
 	
 	public static void main(String[] args) {
 		List<String> list = new ArrayList<>();
-		list.add("hello");
+		list.add("welcome");
 		list.add("hello");
 		list.add("Hi");
 		list.add("Hi");
 		list.add("What");
 		
-		//System.out.println(removeDuplicates(list));
+		System.out.println(removeDuplicates(list));
 		
 		List<Integer> list1 = new ArrayList<>();
 		list1.add(3);
 		list1.add(2);
+		list1.add(1);
 		list1.add(4);
 		list1.add(1);
+		list1.add(1);
 		list1.add(9);
-		System.out.println(minToFront(list1));
+		//System.out.println(minToFront(list1));
 	}
 	
 }
