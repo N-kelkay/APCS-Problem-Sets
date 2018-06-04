@@ -1,5 +1,8 @@
 package net.mrpaul.ads.PB150.ps14;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * works with Recursion to solve different problems 
  * each problem has it's own method
@@ -239,4 +242,169 @@ public class RecursionExercises {
 		}
 		return false;
 	}
+	
+	
+	// PART 2 (ONLY FOR APCS 2018):
+	
+	/**
+	 * FINISHED!!
+	 * @param list1
+	 * @return
+	 */
+	public static int maxLength(List<String> list1){
+		if(list1.size() == 0) {
+			return 0;
+		}
+		else {
+		int max = list1.get(0).length();
+		
+		if(list1.size() == 1) {
+			return max;
+		}
+		
+		else
+		{
+			if(list1.get(0).length() < list1.get(1).length()) {
+				max = list1.get(1).length();
+				list1.remove(0);
+				return maxLength(list1);
+			}
+			else {
+				list1.remove(1);
+				return maxLength(list1);
+			}
+		}
+		}	
+	}
+	
+	/**
+	 * FINSIHED!
+	 * @param list
+	 * @return
+	 */
+	public static String swapPairs(List<String> list){
+		
+		if(list.size() == 1) {
+			return list.get(0);
+		}
+		else if(list.size() == 0) {
+			return "";
+		}
+		else {
+			String x = list.remove(0);
+			String y = list.remove(0);
+			return y + " " + x + " " + swapPairs(list);
+		}
+	}
+	
+	/**
+	 * FINISHED!
+	 * @param list
+	 * @return
+	 */
+	public static String doubleList(List<String> list){
+		
+		if (list.size() == 1) {
+			list.add(list.get(0));
+			return list.get(0) + " " + list.get(1);
+		}
+		if(list.size() == 0) {
+			return "";
+		}
+		else {
+			if(list.size() == 2) {
+				String x = list.remove(0);
+				String y = list.remove(0);
+				return x + " " + x + " " + y + " " + y + " " + doubleList(list);
+			}
+			else {
+			String x = list.remove(0);
+			String y = list.remove(1);
+			return x + " " + x + " " + y + " " + y + " " + doubleList(list);
+			}
+		}
+	}
+	
+	
+	public static List<Integer> minToFront(List<Integer> list) {
+		if(list.size() == 1) {
+			return list;
+		}
+		else {
+			//Finds min
+			int min  = list.get(0);
+			int indexOfMin = -1;
+			int countMinReps = 0;
+			for(int i = 0; i < list.size(); i++) {
+				if(list.get(i) < min) {
+					min = list.get(i);
+					indexOfMin = i;
+				}
+				if(list.get(i) == min) {
+					countMinReps++;
+				}
+			}
+			
+			//Removes the mins from the list and adds them to the new list;
+			List<Integer> newList = new ArrayList<>();
+			for(int i = 0; i < countMinReps; i ++) {
+				for(int j = 0; j < list.size(); j++) {
+					if(list.get(j) == min) {
+						list.remove(j);
+						newList.add(min);
+					}
+				}
+			}
+			
+			for(int i = 0; i < newList.size(); i ++) {
+				list.add(0, newList.get(i));
+			}
+			return newList;
+		}
+	}
+	
+	
+	/**
+	 * FINISHED!
+	 * @param list
+	 * @return
+	 */
+	public static String removeDuplicates(List<String> list) {
+		if(list.size() == 1) {
+			return list.get(0);
+		}
+		if(list.size() == 0) {
+			return "";
+		}
+		else {
+			if(list.get(0).equals(list.get(1))) {
+				String x = list.remove(1);
+				list.remove(0);
+				return x + " " + removeDuplicates(list) + " ";
+			}
+			else {
+				return list.remove(0) + " " + removeDuplicates(list) + " ";
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		List<String> list = new ArrayList<>();
+		list.add("hello");
+		list.add("hello");
+		list.add("Hi");
+		list.add("Hi");
+		list.add("What");
+		
+		//System.out.println(removeDuplicates(list));
+		
+		List<Integer> list1 = new ArrayList<>();
+		list1.add(3);
+		list1.add(2);
+		list1.add(4);
+		list1.add(1);
+		list1.add(9);
+		System.out.println(minToFront(list1));
+	}
+	
 }
