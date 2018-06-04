@@ -114,8 +114,8 @@ class RecursionExercisesTest {
 		list1.add(1);
 		list1.add(9);
 		List<Integer> list = RecursionExercises.minToFront(list1);
-		List<Integer> list2 = new ArrayList<>();
 		
+		List<Integer> list2 = new ArrayList<>();
 		list2.add(1);
 		list2.add(1);
 		list2.add(1);
@@ -123,6 +123,7 @@ class RecursionExercisesTest {
 		list2.add(2);
 		list2.add(4);
 		list2.add(9);
+		
 		assertEquals(list, list2);
 	}
 	

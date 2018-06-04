@@ -42,14 +42,9 @@ public class RecursionExercises {
 	 * @return
 	 */
 	public static int sumDigits(int n) {
-		if( n < 10) {
-			return n;
-		}
-		else
-		{
-			return n%10 + sumDigits(n/10);
-		}
-		//return n == 0 ? 0 : n % 10 + sumDigits(n/10);		
+		if( n < 10) {return n;}
+		else{return n%10 + sumDigits(n/10);}
+		//return n == 0 ? 0 : n % 10 + sumDigits(n/10);	<---- Also works	
 	}
 	
 	/**
@@ -66,24 +61,19 @@ public class RecursionExercises {
 	 * @return
 	 */
 	public static int count7(int n) {
-		
 		if(n < 10) {
-			if (n == 7) {
+			if (n == 7)
 				return 1;
-			}
-			else {
+			else 
 				return 0;
-			}
+			
 		}
-		
 		else
 		{
-			if (n % 10 == 7) {
+			if (n % 10 == 7) 
 				return 1 + count7(n/10);
-			}
-			else {
+			else 
 				return count7(n/10);
-			}
 		}
 	}
 	
@@ -100,14 +90,10 @@ public class RecursionExercises {
 	 * @return
 	 */
 	public static int powerN(int base, int power) {
-		if (power == 1) {
+		if (power == 1) 
 			return base;
-		}
-		
 		else
-		{
 			return base * powerN(base, power -1);
-		}
 	}
 	
 	/**
@@ -133,7 +119,6 @@ public class RecursionExercises {
 			}
 			return false;
 		}
-		
 		else {
 			if(a[x] * 10 == a[x+1]) {
 				return true;
@@ -157,18 +142,13 @@ public class RecursionExercises {
 	 * @return
 	 */
 	public static int euclideanGCD(int x, int y) {
-		if (y <= x && x%y == 0) {
+		if (y <= x && x%y == 0) 
 			return y;
-		}
-		else if(x < y) {
+		else if(x < y) 
 			return euclideanGCD(y, x);
-		}
 		else
-		{
 			return euclideanGCD(y, x%y);
-		}
 	}
-	
 	
 	/**
 	 * a method countVowels to return the number of vowels in its single String parameter
@@ -184,15 +164,11 @@ public class RecursionExercises {
 	 * @return
 	 */
 	public static int countVowels(String word) {
-		
 		if (word.length() == 1) {
-			if (checkVowel(word.charAt(0))) {
+			if (checkVowel(word.charAt(0)))
 				return 1;
-			}
 			else
-			{
 				return 0;
-			}
 		}
 		else if (checkVowel(word.charAt(word.length()-1))){
 			return 1 + countVowels(word.substring(0, word.length() -1));
@@ -200,7 +176,6 @@ public class RecursionExercises {
 		else {
 			return countVowels(word.substring(0, word.length() -1));
 		}
-
 	}
 	
 	/**
@@ -225,14 +200,12 @@ public class RecursionExercises {
 		if(word.length() == 1 || word.length() == 0) {
 			return 1;
 		}
-		
 		else {
 			if(word.substring(word.length()-1).equals(word.substring(0, 1))) {
 				return isPalindrome(word.substring(1, word.length()-1));
 			}
 			return 0;
 		}
-		
 	}
 	
 	//HELPER METHOD: for countVowel
@@ -243,10 +216,11 @@ public class RecursionExercises {
 		return false;
 	}
 	
-	
 	// PART 2 (ONLY FOR APCS 2018):
 	
 	/**
+	 * Takes a List of Strings as a parameter and returns the length of the longest string in the list
+	 * 
 	 * FINISHED!!
 	 * @param list1
 	 * @return
@@ -261,7 +235,6 @@ public class RecursionExercises {
 		if(list1.size() == 1) {
 			return max;
 		}
-		
 		else
 		{
 			if(list1.get(0).length() < list1.get(1).length()) {
@@ -278,12 +251,15 @@ public class RecursionExercises {
 	}
 	
 	/**
-	 * FINSIHED!
+	 * Switches the order of values in a List of Strings (passed via parameter) 
+	 * in a pairwise fashion and returns the result. The method switches 
+	 * the order of the first two values, then switch the order of the next two, 
+	 * switch the order of the next two, and so on.
+	 * 
 	 * @param list
 	 * @return
 	 */
 	public static String swapPairs(List<String> list){
-		
 		if(list.size() == 1) {
 			return list.get(0);
 		}
@@ -298,12 +274,12 @@ public class RecursionExercises {
 	}
 	
 	/**
-	 * FINISHED!
+	 * Takes a List of Strings as a parameter and replaces every string with two of that string
+	 * 
 	 * @param list
 	 * @return
 	 */
 	public static String doubleList(List<String> list){
-		
 		if (list.size() == 1) {
 			list.add(list.get(0));
 			return list.get(0) + " " + list.get(1);
@@ -312,17 +288,16 @@ public class RecursionExercises {
 			return "";
 		}
 		else {
-			
-			
 			String x = list.remove(0);
 			String y = list.remove(0);
 			return x + " " + x + " " + y + " " + y + " " + doubleList(list);
-			
 		}
 	}
 	
 	/**
-	 * FINISHED!
+	 * takes a List of ints as a parameter and moves the minimum value in the list to the front, 
+	 * otherwise preserves the order of the elements
+	 * 
 	 * @param list
 	 * @return
 	 */
@@ -356,6 +331,7 @@ public class RecursionExercises {
 				}
 			}
 			
+			//adds the min(s) to the front
 			for(int i = 0; i < newList.size(); i ++) {
 				list.add(0, newList.get(i));
 			}
@@ -363,9 +339,9 @@ public class RecursionExercises {
 		}
 	}
 	
-	
 	/**
-	 * FINISHED!
+	 * Takes as a parameter a sorted List of Strings and eliminates any duplicates from the list
+	 * 
 	 * @param list
 	 * @return
 	 */
@@ -373,7 +349,7 @@ public class RecursionExercises {
 		if(list.size() == 1) {
 			return list.get(0);
 		}
-		if(list.size() == 0) {
+		else if(list.size() == 0) {
 			return "";
 		}
 		else {
@@ -387,26 +363,4 @@ public class RecursionExercises {
 			}
 		}
 	}
-	
-	public static void main(String[] args) {
-		List<String> list = new ArrayList<>();
-		list.add("welcome");
-		list.add("hello");
-		list.add("Hi");
-		list.add("Hi");
-		list.add("What");
-		
-		System.out.println(removeDuplicates(list));
-		
-		List<Integer> list1 = new ArrayList<>();
-		list1.add(3);
-		list1.add(2);
-		list1.add(1);
-		list1.add(4);
-		list1.add(1);
-		list1.add(1);
-		list1.add(9);
-		//System.out.println(minToFront(list1));
-	}
-	
 }
