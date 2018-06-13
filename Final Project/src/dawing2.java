@@ -19,7 +19,10 @@ public class dawing2 {
 			pen.move(-400, 400);
 			pen.move(1+40);
 			pen.down();
-			
+			if(i%2==0) {
+				pen.turn(90);
+				pen.move(40);
+			}
 			pen.move(i);
 			pen.turn(91);
 		}
