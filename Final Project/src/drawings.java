@@ -1,11 +1,11 @@
 import TurtleGraphics.Pen;
+import TurtleGraphics.RainbowPen;
 import TurtleGraphics.SketchPadWindow;
-import TurtleGraphics.StandardPen;
 
 public class drawings {
 	public static void main(String[] args) {
 		SketchPadWindow win = new SketchPadWindow(800, 800);
-		Pen p = new StandardPen(win);
+		Pen p = new RainbowPen(win);
 
 		int move = 1;
 

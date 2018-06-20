@@ -1,11 +1,11 @@
 import TurtleGraphics.Pen;
+import TurtleGraphics.RainbowPen;
 import TurtleGraphics.SketchPadWindow;
-import TurtleGraphics.StandardPen;
 
 public class dawing2 {
 	public static void main(String[] args) {
 		SketchPadWindow win = new SketchPadWindow(800, 800);
-		Pen pen = new StandardPen(win);
+		Pen pen = new RainbowPen(win);
 		
 		int x =(int)(Math.random() * 401);
 		int[] y = new int[400];
